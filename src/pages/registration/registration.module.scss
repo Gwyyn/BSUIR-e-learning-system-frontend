@@ -1,0 +1,134 @@
+$percentMarginTop: -12%;
+
+.root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+
+}
+
+.wrapper {
+  background: #FFFFFF;
+  border-radius: 10px;
+  width: 480px;
+  height: 800px;
+
+  margin-top: 7%;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.icoBsuir {
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  top: $percentMarginTop;
+}
+
+.title {
+  text-align: center;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+  height: 50px;
+  width: 222px;
+
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  top: $percentMarginTop;
+
+}
+
+.formWrapper {
+  position: relative;
+
+  top: $percentMarginTop;
+}
+
+.radio{
+  margin-top: 26px;
+}
+
+.radioTeach {
+  margin-top: 13px;
+}
+
+.input {
+  display: flex;
+  width: 410px;
+  padding: 21px 16px;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 10px;
+  background: var(--Gray-6, #F2F2F2);
+  border: none;
+  margin-top: 25px;
+
+}
+
+.button {
+  display: flex;
+  width: 440px;
+  padding: 18px;
+  margin-top: 47px;
+  justify-content: center;
+  align-items: center;
+
+  border: none;
+  border-radius: 10px;
+  background: #487db4;
+
+  color: #FFF;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.button:hover{
+  cursor: pointer;
+  background-color: #0c5d96;
+}
+.button:active{
+  background-color: #142a73;
+}
+
+
+.forgotPassword {
+  margin-top: 12px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.link {
+  cursor: pointer;
+  color: var(--Gray-4, #BDBDBD);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.tableHelp {
+  margin-top: 20px;
+
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
