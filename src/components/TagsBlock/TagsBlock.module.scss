@@ -1,0 +1,36 @@
+.tagsList {
+    list-style: none;
+    padding: 0;
+}
+
+.tagLink {
+    text-decoration: none;
+    color: black;
+}
+
+.tagItem {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+}
+
+.tagIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+
+    margin-right: 8px;
+}
+
+.tagName {
+    font-size: 14px;
+}
+
+.tagSkeleton {
+    width: 100px;
+    height: 16px;
+    background-color: #ccc;
+    border-radius: 4px;
+}

@@ -1,3 +1,4 @@
-export {Login} from './login'
-export {Registration} from './registration'
-export {Home} from './home'
+export {Login} from './Login'
+export {Registration} from './Registration'
+export {Home} from './Home'
+export {FullPost} from './FullPost'

@@ -25,15 +25,14 @@ $marginLeftAndRight: 0 120px;
 
 }
 
-.wrapperEntryBtn{
-  text-decoration: none;
-}
-
 .entryBtn{
   width: 134px;
   height: 40px;
   border-radius: 10px;
   background: #487DB4;
+
+  text-decoration: none;
+
 
   color: #FFFFFF;
   font-size: 18px;
@@ -54,4 +53,33 @@ $marginLeftAndRight: 0 120px;
 }
 .entryBtn:active{
   background-color: #142a73;
+}
+
+.exitBtn {
+  width: 134px;
+  height: 40px;
+  border-radius: 10px;
+  background: #e53535;
+  border: none;
+  text-decoration: none;
+
+  color: #FFFFFF;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: $marginLeftAndRight;
+}
+
+.exitBtn:hover{
+  cursor: pointer;
+  background-color: #cb1b1b;
+}
+.exitBtn:active{
+  background-color: #b70707;
 }
