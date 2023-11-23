@@ -9,6 +9,9 @@ import {EditIcon} from "../icons/EditIcon";
 import {DeleteIcon} from "../icons/DeleteIcon";
 import {EyeIcon} from "../icons/EyeIcon";
 import {Link} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {fetchRemovePost} from "../../redux/slices/posts";
+import {logout} from "../../redux/slices/auth";
 
 export const Post = ({
   id,
@@ -23,11 +26,16 @@ export const Post = ({
   isLoading, // удалить в fullPost
   isEditable,
 }) => {
+  const dispatch = useDispatch()
 
   if (isLoading) {
     return <DeleteIcon />;
   }
-  const onClickRemove = () => {};
+  const onClickRemove = () => {
+    if(window.confirm('Вы действительно хотите удалить статью?')) {
+      dispatch(fetchRemovePost(id))
+    }
+  };
 
   return (
     <div className={clsx(styles.root, { [styles.rootFull]: isFullPost })}>

@@ -8,27 +8,42 @@ import {logout, selectIsAuth} from "../../redux/slices/auth";
 export const Header = () => {
     const dispatch = useDispatch()
     const isAuth = useSelector(selectIsAuth)
+    const useData = useSelector(state => state.auth.data)
+    const role = useData?.role
+    console.log(role)
 
     const onClickLogout = () => {
-        if(window.confirm('Вы действительно хотите выйти?')) {
+        if (window.confirm('Вы действительно хотите выйти?')) {
             dispatch(logout())
             window.localStorage.removeItem('token')
+
         }
     };
 
     return (
         <div className={cl.root}>
-            <span className={cl.title}>«БГУИР: Университет»</span>
+            <Link to="/" className={cl.title}>
+                <span>«БГУИР: Университет»</span>
+            </Link>
 
             <div>
                 {isAuth ? (
                     <>
-                        <Link to="/posts/create">
+                        <Link to="/add-post">
                             Написать статью
                         </Link>
-                        <button onClick={onClickLogout} className={cl.exitBtn}>
-                            Выйти
-                        </button>
+                        {role === "admin" &&
+                            <>
+                                <Link to="/register">
+                                    <button variant="contained">Создать аккаунт</button>
+                                </Link>
+                            </>
+                        }
+                        <Link to="/" style={{textDecoration: 'none'}}>
+                            <button onClick={onClickLogout} className={cl.exitBtn}>
+                                Выйти
+                            </button>
+                        </Link>
                     </>
                 ) : (
                     <>

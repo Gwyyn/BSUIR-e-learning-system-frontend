@@ -4,9 +4,9 @@ import cl from './DeleteIcon.module.scss'
 import ico from "./DeleteIcon.svg";
 
 
-export const DeleteIcon = () => {
+export const DeleteIcon = ({onClick}) => {
     return (
-        <div className={cl.root}>
+        <div className={cl.root} onClick={onClick}>
             <img src={ico} alt="deleteIcon"/>
         </div>
     );
