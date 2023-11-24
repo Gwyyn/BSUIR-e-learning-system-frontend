@@ -10,7 +10,6 @@ export const Header = () => {
     const isAuth = useSelector(selectIsAuth)
     const useData = useSelector(state => state.auth.data)
     const role = useData?.role
-    console.log(role)
 
     const onClickLogout = () => {
         if (window.confirm('Вы действительно хотите выйти?')) {
@@ -29,13 +28,25 @@ export const Header = () => {
             <div>
                 {isAuth ? (
                     <>
+                    {role === "admin" &&
                         <Link to="/add-post">
                             Написать статью
                         </Link>
+                    }
                         {role === "admin" &&
                             <>
                                 <Link to="/register">
-                                    <button variant="contained">Создать аккаунт</button>
+                                    <button>Создать аккаунт</button>
+                                </Link>
+                            </>
+                        }
+                        {role === "educator" &&
+                            <>
+                                <Link to="/add-subject">
+                                    <button>Создать учебную дисциплину</button>
+                                </Link>
+                                <Link to="/subjects">
+                                    <button>Мои дисциплины</button>
                                 </Link>
                             </>
                         }

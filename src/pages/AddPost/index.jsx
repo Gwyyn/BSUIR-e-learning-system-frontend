@@ -1,11 +1,10 @@
-import React, {useCallback, useState} from 'react';
+import React, {useState} from 'react';
 import {useSelector} from "react-redux";
 import {Link, Navigate, useNavigate, useParams} from "react-router-dom";
 import {selectIsAuth} from "../../redux/slices/auth";
 import axios from "../../axios";
 
 import './AddPost.module.scss';
-import {set} from "react-hook-form";
 
 export const AddPost = () => {
     const {id} = useParams();
