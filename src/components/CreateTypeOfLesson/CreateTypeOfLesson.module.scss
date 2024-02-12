@@ -1,0 +1,79 @@
+.createTypeLesson {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.chooseBtn {
+  width: 180px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid #487DB4;
+
+  background: #FFF;
+
+  color: #487DB4;
+
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+
+  &:hover {
+    cursor: pointer;
+    color: #FFF;
+    background: #487DB4;
+  }
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Стилизация невыбранного списка */
+.dropdownList {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-size: 16px;
+  width: 250px;
+  cursor: pointer;
+  outline: none;
+  border-radius: 5px;
+}
+
+/* Иконка для стилизации стрелки вниз */
+.dropdownList::after {
+  content: '\25BC';
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: 20px;
+}
+
+/* Стилизация выбранных опций */
+.dropdownListOption {
+  background-color: #fff;
+  color: #333;
+}
+
+/* Стилизация при наведении на опции */
+.dropdownListOption:hover {
+  background-color: #e0e0e0;
+}
+
+/* Стилизация при фокусе на опции */
+.dropdownList:focus {
+  border: 1px solid #3498db;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+/* Стилизация при открытии списка */
+.dropdownList:focus::after {
+  content: '\25B2';
+}

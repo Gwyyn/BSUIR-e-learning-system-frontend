@@ -13,11 +13,12 @@ $marginLeftAndRight: 0 120px;
 }
 
 .title {
-  color: #5978E1;
+  color: #000000;
   font-size: 24px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  text-decoration: none;
 
   padding-left: 8%;
 
@@ -83,4 +84,24 @@ $marginLeftAndRight: 0 120px;
 }
 .exitBtn:active{
   background-color: #b70707;
+}
+
+.navBarWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.navBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.navBtn {
+  color: #000;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }

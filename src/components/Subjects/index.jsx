@@ -1,14 +1,14 @@
 import React from 'react';
 import cl from "./Subjects.module.scss";
 import {useDispatch, useSelector} from "react-redux";
-import {Subject, TagsBlock} from "../../components";
+import {Subject, TagsBlock} from "../index";
 import {fetchSubjects, fetchTags} from "../../redux/slices/subjects";
 
 
 export const Subjects = () => {
 
     const dispatch = useDispatch();
-    const useData = useSelector(state => state.auth.data)
+    const userData = useSelector(state => state.auth.data)
     const {subjects, tags} = useSelector(state => state.subjects)
 
     const isSubjectsLoading = subjects.status === 'loading';
@@ -34,7 +34,10 @@ export const Subjects = () => {
                                 user={obj.user}
                                 createdAt={obj.createdAt}
                                 tags={obj.tags}
-                                isEditable={useData?._id === obj.user._id}
+                                text={obj.text}
+                                hours={obj.hours}
+                                fileUrl={obj.fileUrl}
+                                isEditable={userData?._id === obj.user._id}
                             />
                         )
                     )}

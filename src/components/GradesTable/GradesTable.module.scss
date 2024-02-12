@@ -1,0 +1,46 @@
+/* Добавляем стили для таблицы */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  //margin-top: 20px;
+}
+
+/* Стили для заголовков таблицы */
+th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+/* Стили для ячеек таблицы */
+td {
+  border: 1px solid #ddd;
+  padding: 4px;
+  text-align: center;
+  width: 1000px;
+}
+
+/* Стили для отметок */
+td span {
+  display: block;
+}
+
+/* Стили для средней отметки */
+td:last-child span {
+  display: inline-block;
+  margin-top: 8px;
+}
+
+.mark-cell,
+.empty-cell {
+  width: 10px;
+  height: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+/* Добавим стили для правильного отображения ячеек в колонке Отметки */
+td:nth-child(3) {
+  white-space: nowrap;
+  vertical-align: top;
+}

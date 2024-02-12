@@ -1,0 +1,103 @@
+.root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.goBack {
+  width: 175px;
+  position: relative;
+  margin: 20px 0 0 20px;
+}
+
+.toMainScreen {
+  color: #000000;
+
+  &:hover{
+    color: #487DB4;
+
+  }
+}
+
+.rootWrapper {
+  margin-top: 58px;
+  width: 1200px;
+  border-radius: 5px;
+  background: #FFF;
+
+  box-shadow: -1px 4px 10px 0px rgba(184, 184, 184, 0.25);
+}
+
+.subjectWrapper {
+  display: flex;
+}
+
+.times {
+  color: #000;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.subjectDescr {
+  color: #000;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.programSubject {
+  color: #000;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.programFile {
+  color: black;
+  display: flex;
+  align-items: center;
+  margin: 10px 0 20px 0;
+
+
+}
+
+.typeLesson {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.createTypeLesson {
+  display: flex;
+}
+
+.chooseBtn {
+  width: 300px;
+  height: 29px;
+  border-radius: 10px;
+  border: 1px solid #487DB4;
+
+  background: #FFF;
+
+  color: #487DB4;
+
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+
+  &:hover {
+    cursor: pointer;
+    color: #FFF;
+    background: #487DB4;
+  }
+}
+
+.btnsWrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap: 10px;
+}

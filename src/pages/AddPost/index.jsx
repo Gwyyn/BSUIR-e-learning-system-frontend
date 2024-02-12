@@ -4,7 +4,7 @@ import {Link, Navigate, useNavigate, useParams} from "react-router-dom";
 import {selectIsAuth} from "../../redux/slices/auth";
 import axios from "../../axios";
 
-import './AddPost.module.scss';
+import cl from './AddPost.module.scss';
 
 export const AddPost = () => {
     const {id} = useParams();
@@ -14,7 +14,7 @@ export const AddPost = () => {
     const [text, setText] = useState('');
     const [title, setTitle] = useState('');
     const [tags, setTags] = useState('');
-    const [imageUrl, setImageUrl] = useState('');
+    const [imageUrl, setImageUrl] = useState(null);
     const inputFileRef = React.useRef(null);
 
     const isEdting = Boolean(id)
@@ -25,7 +25,7 @@ export const AddPost = () => {
             const file = event.target.files[0];
             if (file.type.startsWith('image/')) {
                 formData.append('file', file);
-                const { data } = await axios.post('/upload', formData);
+                const {data} = await axios.post('/upload', formData);
                 setImageUrl(data.url);
             } else {
                 return alert('Можно загружать только изображения');
@@ -37,7 +37,7 @@ export const AddPost = () => {
     };
 
     const onClickRemoveImage = () => {
-        setImageUrl('')
+        setImageUrl(null)
     };
 
     const onChange = (value) => {
@@ -102,47 +102,61 @@ export const AddPost = () => {
     }
 
     return (
-        <div className="paper">
-            <button onClick={() => inputFileRef.current.click()} className="button outlined">
-                Загрузить превью
-            </button>
-            <input ref={inputFileRef} type="file" onChange={handleChangeFile} hidden/>
-            {imageUrl && (
-                <>
-                    <button className="button contained error" onClick={onClickRemoveImage}>
-                        Удалить
+        <div className={cl.root}>
+            <div className={cl.rootWrapper}>
+                <div className={cl.goBack}>
+                    <Link to="/" style={{textDecoration: 'none'}}>
+                        <div style={{color:"#000000"}}>&lt;-  На главный экран</div>
+                    </Link>
+                </div>
+                <div className={cl.previewWrapper}>
+                    {imageUrl == null &&
+                        <>
+                            <button onClick={() => inputFileRef.current.click()} className={cl.choosePreviewBtn}>
+                                Загрузить превью
+                            </button>
+                            <input ref={inputFileRef} type="file" onChange={handleChangeFile} hidden/>
+                        </>
+                    }
+                    {imageUrl && (
+                        <div className={cl.preview}>
+                            <img className={cl.photo} src={`http://localhost:3001${imageUrl}`} alt="Uploaded"/>
+                            <button className={cl.deleteBtn} onClick={onClickRemoveImage}>
+                                Удалить превью
+                            </button>
+                        </div>
+                    )}
+                </div>
+                <br/>
+                <br/>
+                <div className={cl.textInputWrapper}>
+                    <input
+                        className={cl.textInput}
+                        type="text"
+                        placeholder="Заголовок статьи"
+                        value={title}
+                        onChange={event => setTitle(event.target.value)}
+                    />
+                    <input
+                        className={cl.textInput}
+                        type="text"
+                        placeholder="Тэги"
+                        value={tags}
+                        onChange={event => setTags(event.target.value)}
+                    />
+                    <textarea
+                        placeholder="Описание статьи"
+                        className={cl.textAreaInput}
+                        value={text}
+                        onChange={(e) => onChange(e.target.value)}
+                    />
+                </div>
+
+                <div className={cl.btnWrapper}>
+                    <button onClick={onSubmit} className={cl.saveBtn}>
+                        {isEdting ? "Сохранить" : "Опубликовать"}
                     </button>
-                    <img className="image" src={`http://localhost:3001${imageUrl}`} alt="Uploaded"/>
-                </>
-            )}
-            <br/>
-            <br/>
-            <input
-                className="textfield title"
-                type="text"
-                placeholder="Заголовок статьи..."
-                value={title}
-                onChange={event => setTitle(event.target.value)}
-            />
-            <input
-                className="textfield tags"
-                type="text"
-                placeholder="Тэги"
-                value={tags}
-                onChange={event => setTags(event.target.value)}
-            />
-            <textarea
-                className="simplemde editor"
-                value={text}
-                onChange={(e) => onChange(e.target.value)}
-            />
-            <div className="buttons">
-                <button onClick={onSubmit} className="button large contained">
-                    {isEdting ? "Сохранить" : "Опубликовать"}
-                </button>
-                <Link to="/">
-                    <button className="button large">Отмена</button>
-                </Link>
+                </div>
             </div>
         </div>
     );

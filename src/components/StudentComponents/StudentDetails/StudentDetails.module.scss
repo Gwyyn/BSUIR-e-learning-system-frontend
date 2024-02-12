@@ -1,0 +1,73 @@
+$blue: #487DB4;
+
+.tabsContainer {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.tab {
+    margin-right: 10px;
+    padding: 5px 10px;
+    background-color: #f4f4f4;
+    cursor: pointer;
+}
+
+.gridContainer {
+
+    display: flex;
+    justify-content: center;
+    grid-gap: 50px;
+
+    margin: 50px 0 0 10%;
+
+
+}
+
+.postContainer {
+    display: grid;
+    grid-gap: 20px;
+}
+
+.sidebar {
+    width: 25%;
+
+}
+
+.avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.rootWrapper {
+    display: flex;
+    align-items: center;
+}
+
+//.root {
+//    border: 1px solid $blue;
+//}
+
+.root {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 400px;
+    height: 40px;
+    background-color: #fff;
+    border: 1px solid $blue;
+    border-radius: 6px;
+    overflow: hidden;
+
+
+
+    &:hover {
+        border: 1px solid #2e4186;
+        box-shadow: 0 0 0 1px #2e4186;
+
+    }
+}
+.studentFIO {
+    color: #000;
+}

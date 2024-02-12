@@ -1,0 +1,54 @@
+.tabsContainer {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.tab {
+  margin-right: 10px;
+  padding: 5px 10px;
+  background-color: #f4f4f4;
+  cursor: pointer;
+}
+
+.gridContainer {
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  grid-gap: 10px;
+
+  margin: 20px 0 0 10%;
+
+
+}
+
+.postContainer {
+  display: grid;
+  grid-gap: 10px;
+}
+
+.sidebar {
+  width: 25%;
+
+}
+
+.root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.goBack {
+  width: 175px;
+  position: relative;
+  margin: 20px 0 0 20px;
+}
+
+.toMainScreen {
+  color: #000000;
+
+  &:hover{
+    color: #487DB4;
+
+  }
+}

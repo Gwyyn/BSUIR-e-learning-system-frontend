@@ -1,0 +1,108 @@
+.programFile {
+  display: flex;
+  align-items: center;
+  color: black;
+}
+
+.root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rootWrapper {
+  margin-top: 58px;
+  width: 853px;
+  border-radius: 5px;
+  background: #FFF;
+
+  box-shadow: -1px 4px 10px 0px rgba(184, 184, 184, 0.25);
+}
+
+.goBack {
+  width: 175px;
+  position: relative;
+  margin: 20px 0 0 20px;
+}
+
+.toMainScreen {
+  color: #000000;
+
+  &:hover{
+    color: #487DB4;
+
+  }
+}
+
+.studentFIO {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 438px;
+  height: 35px;
+
+  border-radius: 10px;
+  border: 1px solid #000;
+
+  background: #FFF;
+
+  color: #000;
+
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.gradeWrapper {
+  display: flex;
+  flex-direction: column;
+}
+.gradeTitle {
+  color: #000;
+
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.gradeInput {
+  width: 80px;
+  height: 40px;
+  font-size: 20px;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+.saveBtn{
+  width: 300px;
+  height: 40px;
+  border-radius: 10px;
+  background: #487DB4;
+
+  border: none;
+  text-decoration: none;
+
+
+  color: #FFFFFF;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 10px;
+}
+
+.saveBtn:hover{
+  cursor: pointer;
+  background-color: #0c5d96;
+}
+.saveBtn:active{
+  background-color: #142a73;
+}

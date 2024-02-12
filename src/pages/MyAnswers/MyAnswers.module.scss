@@ -1,0 +1,104 @@
+$blue: #487DB4;
+
+.root {
+  background-color: #fff;
+  border: 1px solid #dedede;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 15px;
+  position: relative;
+  width: 50em;
+
+
+  &:hover {
+    border: 1px solid $blue;
+    box-shadow: 0 0 0 1px $blue;
+
+    .editButtons {
+      opacity: 1;
+    }
+  }
+}
+
+.goBack {
+  width: 175px;
+  position: relative;
+  margin: 20px 0 0 0;
+}
+
+.toMainScreen {
+  color: #000000;
+
+  &:hover{
+    color: #487DB4;
+
+  }
+}
+
+
+.editButtons {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  background: #CEE4F1;
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  width: 50px;
+  height: 35px;
+  border-radius: 10px;
+
+  opacity: 0;
+  transition: all 0.15s ease-in-out;
+}
+
+
+.gridContainer {
+
+  display: flex;
+  justify-content: center;
+  grid-gap: 50px;
+
+  margin: 50px 0 0 10%;
+
+
+}
+
+.postContainer {
+  display: grid;
+  grid-gap: 20px;
+}
+
+
+.rootWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+
+.programFile {
+  color: black;
+  display: flex;
+  align-items: center;
+}
+
+.titleWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 15px;
+}
+
+.task {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.answer {
+  display: flex;
+  flex-direction: column ;
+  justify-content: center;
+}

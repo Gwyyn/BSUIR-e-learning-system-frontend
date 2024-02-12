@@ -5,9 +5,10 @@ import {selectIsAuth} from "../../redux/slices/auth";
 import axios from "../../axios";
 
 
-import './AddSubject.module.scss';
 import {PdfIcon} from "../../components/icons/PdfIcon";
 import {DocIcon} from "../../components/icons/DocIcon";
+import cl from "./AddSubject.module.scss";
+import {DeleteIcon} from "../../components";
 
 export const AddSubject = () => {
     const {id} = useParams();
@@ -25,22 +26,25 @@ export const AddSubject = () => {
 
     const handleChangeFile = async (event) => {
         try {
-            const formData = new FormData();
             const file = event.target.files[0];
             const allowedExtensions = ['doc', 'docx', 'pdf'];
             const fileExtension = file.name.split('.').pop().toLowerCase();
 
             if (allowedExtensions.includes(fileExtension)) {
-                // formData.append('file', file);
-                // const { data } = await axios.post('/upload', formData);
-                const response = await axios.post('/upload', formData, {
+                const formData = new FormData();
+                formData.append('file', file);
+                await axios.post('/upload', formData, {
                     headers: {
-                        'Content-Type': 'multipart/form-data', // Установка правильного заголовка Content-Type
+                        'Content-Type': 'multipart/form-data',
                     },
-                });
-                const data = response.data;
-                setFileUrl(data.url);
-                console.log(data)
+                })
+                    .then(response => {
+                        const data = response.data;
+                        setFileUrl(data.url);
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
             } else {
                 return alert('Можно загружать только файлы с расширениями doc, docx и pdf');
 
@@ -51,7 +55,7 @@ export const AddSubject = () => {
         }
     };
 
-    const onClickRemoveImage = () => {
+    const onClickRemoveFile = () => {
         setFileUrl('')
     };
 
@@ -77,7 +81,7 @@ export const AddSubject = () => {
             const _id = isEdting ? id : data._id;
             navigate(`/subjects/${_id}`);
         } catch (e) {
-            console.warn()
+            console.warn(e)
             alert('Ошибка при создании учебной дисциплины!')
 
         }
@@ -85,9 +89,9 @@ export const AddSubject = () => {
 
     const getFileIcon = () => {
         if (fileUrl && fileUrl.endsWith('.pdf')) {
-            return <PdfIcon />;
+            return <PdfIcon/>;
         } else {
-            return <DocIcon />;
+            return <DocIcon/>;
         }
     };
 
@@ -115,60 +119,76 @@ export const AddSubject = () => {
     }
 
     return (
-        <div className="paper">
-            <input
-                className="textfield title"
-                type="text"
-                placeholder="Название учебной дисциплины..."
-                value={title}
-                onChange={event => setTitle(event.target.value)}
-            />
-            <input
-                className="textfield title"
-                type="number"
-                placeholder="Количество часов..."
-                value={hours}
-                onChange={event => setHours(event.target.value)}
-            />
-            <input
-                className="textfield tags"
-                type="text"
-                placeholder="Тэги"
-                value={tags}
-                onChange={event => setTags(event.target.value)}
-            />
-            <textarea
-                className="simplemde editor"
-                value={text}
-                placeholder="Описание дисциплины"
-                onChange={(e) => onChange(e.target.value)}
-            />
-            <br/>
-            <br/>
-            <button onClick={() => inputFileRef.current.click()} className="button outlined">
-                Прикрепить программу учебной дисциплины
-            </button>
-            <input ref={inputFileRef} type="file" onChange={handleChangeFile} hidden/>
-            {fileUrl && (
-                <>
-                    <button className="button contained error" onClick={onClickRemoveImage}>
-                        Удалить
-                    </button>
-                    <div>
-                        {getFileIcon()}
-                        <p>{fileUrl}</p>
+        <div className={cl.root}>
+            <div className={cl.rootWrapper}>
+                <div className={cl.goBack}>
+                    <Link to="/" style={{textDecoration: 'none'}}>
+                        <div className={cl.toMainScreen}>&lt;-  На главный экран</div>
+                    </Link>
+                </div>
+                <div className={cl.textInputWrapper}>
+                    <input
+                        className={cl.textInput}
+                        type="text"
+                        placeholder="Название учебной дисциплины..."
+                        value={title}
+                        onChange={event => setTitle(event.target.value)}
+                    />
+                    <input
+                        className={cl.textInput}
+                        type="number"
+                        placeholder="Количество часов..."
+                        value={hours}
+                        onChange={event => setHours(event.target.value)}
+                    />
+                    <input
+                        className={cl.textInput}
+                        type="text"
+                        placeholder="Тэги"
+                        value={tags}
+                        onChange={event => setTags(event.target.value)}
+                    />
+                    <textarea
+                        className={cl.textAreaInput}
+                        value={text}
+                        placeholder="Описание дисциплины"
+                        onChange={(e) => onChange(e.target.value)}
+                    />
+                </div>
+                <div className={cl.textPinWrapper}>
+                    <div className={cl.textPin}>
+                        Прикрепить программу учебной дисциплины
                     </div>
-                </>
-            )}
+                    <br/>
+                    <button onClick={() => inputFileRef.current.click()} className={cl.chooseBtn}>
+                        Выбрать
+                    </button>
+                    <input ref={inputFileRef} type="file" onChange={handleChangeFile} hidden/>
+                </div>
 
-            <div className="buttons">
-                <button onClick={onSubmit} className="button large contained">
-                    {isEdting ? "Сохранить" : "Создать"}
-                </button>
-                <Link to="/">
-                    <button className="button large">Отмена</button>
-                </Link>
+                {fileUrl && (
+                    <div className={cl.fileWrapper}>
+                        <div className={cl.programFile}>
+                            <br/>
+                            <br/>
+                            <br/>
+                            {getFileIcon()}{' '}
+                            {fileUrl.split('/').pop()}
+                            &nbsp;
+                            &nbsp;
+                            <DeleteIcon onClick={onClickRemoveFile}/>
+                        </div>
+                    </div>
+                )}
+                <br/>
+                <br/>
+                <div className={cl.btnWrapper}>
+                    <button onClick={onSubmit} className={cl.saveBtn}>
+                        {isEdting ? "Сохранить" : "Создать"}
+                    </button>
+                </div>
             </div>
         </div>
+
     );
 };

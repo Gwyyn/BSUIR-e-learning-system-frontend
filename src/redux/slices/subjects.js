@@ -43,7 +43,7 @@ const subjectsSlice = createSlice({
 
 function handlePendingForRemove(sliceName) {
     return (state, action) => {
-        state[sliceName].items = state.posts.items.filter(obj=>obj._id !== action.meta.arg);
+        state[sliceName].items = state.subjects.items.filter(obj=>obj._id !== action.meta.arg);
     };
 }
 function handlePending(sliceName) {

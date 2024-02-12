@@ -13,3 +13,14 @@ export * from "./Subject";
 
 export * from "./TagsBlock/TagsBlock";
 
+export * from "./CreateTypeOfLesson"
+export * from "./LessonTypeList"
+export * from "./FileTasksList"
+
+export * from "./Answer"
+
+export * from "./StudentComponents/Student"
+export * from "./StudentComponents/Students"
+export * from "./StudentComponents/StudentList"
+export * from "./StudentComponents/StudentDetails"
+export * from "./StudentComponents/StudentAnswer"

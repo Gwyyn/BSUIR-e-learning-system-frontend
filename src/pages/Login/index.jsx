@@ -69,7 +69,12 @@ export const Login = () => {
                             {...register('password', {required: 'Укажите пароль'})}
                         />
                     </div>
-                    <button type="submit" className={cl.button}>Войти</button>
+                    <button
+                        type="submit"
+                        className={cl.button}
+                    >
+                        Войти
+                    </button>
                     <div className={cl.forgotPassword}>
                         Забыли пароль?
                         <span className={cl.link} onClick={handleForgotPassword}>&nbsp; Нажмите сюда</span>
